@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+</head>
+<body>
+<h1>How to Create a Systematic App</h1>
+
+<ul>
+    <li>Create Packages Under the first Kotlin+Java package</li>
+    <p>ALL PACKAGES YOU CREATE MUST BE IMPLEMENTED IN THE DEPENDENCIES (buildGradle.kts(Module:App)) eg.(implementation("androidx.navigation:navigation-compose:2.7.7"))</p>
+   <p>This also helps us to create functioning buttons by using <b>navController.navigate(name of your route )</b> however the button must be in the screen function where the nav Controller has been implemented</p>
+    <p>This Creates a connection between the frontend and backend of ur app .You can perform this by adding a Routes kotlin file and an app navigation host kotlin file where the Routes.kt file holds the paths while the App navigation .kt file holds the composables  ( <b>Remember to add the modifier ,navController,and StartDestination to your function</b> )</p>
+    <li>Create Your Screens( <b>as a package</b>) inside the Ui theme </li>
+    <li>Create packages inside the screens that will hold all your kotlin files individually</li>
+    <li>Implement all the details you want to add in your page in the kotlin files</li>
+    <p>This include : Buttons ,Content,Icons ,Images etc</p>
+    <li>While adding details DON'T forget to add the navController to your screen function </li>
+</ul>
+<h1><b>NB</b></h1>
+<p>ButtonColors=(colors = ButtonDefaults.buttonColors(Color.Blue)) while text color = (Color.blue)</p>
+<ul>
+    <li>TextFields allow users to input data while text implements a text that should be displayed on the page.</li>
+    <li>Match parent ... can only apply when there is a composable function above it </li>
+    <li> </li>
+</ul>
+
+</body>
+</html>
