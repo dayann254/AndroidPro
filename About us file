@@ -1,0 +1,63 @@
+package com.example.deebeauty.ui.theme.screens.about
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.deebeauty.navigation.ROUTE_SHOPPING
+
+@Composable
+fun AboutScreen(navController: NavHostController) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.Start
+    ) {
+        Text(
+            text = "About Us"
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = "Welcome to our online clothes market! We offer a wide range of fashionable clothes for all occasions, delivered straight to your doorstep. Our platform allows you to browse through a variety of products, select your favorites, and easily make purchases online."
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = "How it Works:"
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            text = "1. Browse through our collection of clothes and accessories."
+        )
+        Text(
+            text = "2. Select the items you like and add them to your cart."
+        )
+        Text(
+            text = "3. Proceed to checkout and make your payment."
+        )
+        Text(
+            text = "4. Wait patiently as we prepare and deliver your order."
+        )
+    }
+    Button(onClick = { ROUTE_SHOPPING }) {
+
+    }
+}
+
+@Preview
+@Composable
+fun PreviewAboutUsPage() {
+    AboutScreen(rememberNavController())
+}
