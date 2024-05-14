@@ -1,0 +1,37 @@
+package com.example.deebeauty.navigation
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.deebeauty.ui.theme.screens.about.AboutScreen
+import com.example.deebeauty.ui.theme.screens.home.Homescreen
+import com.example.deebeauty.ui.theme.screens.login.LoginScreen
+import com.example.deebeauty.ui.theme.screens.products.ShoppingPage
+import com.example.deebeauty.ui.theme.screens.register.RegisterScreen
+
+
+@Composable
+fun <NavHostController> AppNavHost(modifier: Modifier = Modifier, navController: androidx.navigation.NavHostController =rememberNavController(), startDestination: String = ROUTE_HOME){
+    NavHost(navController = navController, modifier = Modifier, startDestination = startDestination){
+        composable(ROUTE_HOME){
+            Homescreen(navController)
+        }
+        composable(ROUTE_ABOUT) {
+            AboutScreen(navController)
+
+        }
+        composable(ROUTE_REGISTER){
+            RegisterScreen(navController)
+        }
+
+        composable(ROUTE_LOGIN) {
+            LoginScreen(navController)
+        }
+        composable(ROUTE_SHOPPING) {
+            ShoppingPage(navController)
+        }
+    }
+}
+
