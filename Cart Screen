@@ -1,0 +1,73 @@
+package com.example.deebeauty.ui.theme.screens.products
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Divider
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+
+// Data class representing a product in the cart
+data class CartItem(val name: String, val price: Double)
+
+@Composable
+fun CartPage(cartItems: List<CartItem>) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.Start
+    ) {
+        Text(
+            text = "Cart",
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+        cartItems.forEach { item ->
+            CartItemRow(item)
+        }
+        Divider(modifier = Modifier.padding(vertical = 16.dp))
+        val totalPrice = cartItems.sumByDouble { it.price }
+        Text(
+            text = "Total: $$totalPrice",
+            modifier = Modifier.align(Alignment.End)
+        )
+    }
+}
+
+@Composable
+fun CartItemRow(item: CartItem) {
+    Row(
+        modifier = Modifier.padding(vertical = 8.dp)
+    ) {
+        Text(
+            text = "${item.name} (${item.price})",
+            modifier = Modifier.weight(1f)
+        )
+        Text(
+            text = "$${item.price}",
+            modifier = Modifier.align(Alignment.End)
+        )
+    }
+}
+
+private fun Modifier.Companion.align(alignment: Alignment.Horizontal): Modifier {
+    TODO("Not yet implemented")
+}
+
+@Preview
+@Composable
+fun PreviewCartPage() {
+    val cartItems = listOf(
+        CartItem("Blue Shirt", 29.99),
+        CartItem("Black Pants", 39.99),
+        CartItem("Red Dress", 49.99),
+    )
+    CartPage(cartItems)
+}
